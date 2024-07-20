@@ -24,16 +24,16 @@ mv kops-linux-amd64 /usr/local/bin/kops
 export PATH=$PATH:/usr/local/bin
 
 # Create S3 bucket in eu-north-1 region
-aws s3api create-bucket --bucket kunaljoshi-new.k8s.local --create-bucket-configuration LocationConstraint=eu-north-1
+aws s3api create-bucket --bucket kunaljoshi-new2002.k8s.local --create-bucket-configuration LocationConstraint=eu-north-1
 
 # Enable versioning on the S3 bucket
-aws s3api put-bucket-versioning --bucket kunaljoshi-new.k8s.local --versioning-configuration Status=Enabled
+aws s3api put-bucket-versioning --bucket kunaljoshi-new2002.k8s.local --versioning-configuration Status=Enabled
 
 # Set KOPS_STATE_STORE environment variable
-export KOPS_STATE_STORE=s3://kunaljoshi-new.k8s.local
+export KOPS_STATE_STORE=s3://kunaljoshi-new2002.k8s.local
 
 # Create Kubernetes cluster with kops
-kops create cluster --name kunaljoshi-new.k8s.local --zones eu-north-1a --master-count=1 --master-size t3.medium --node-count=2 --node-size t3.medium
+kops create cluster --name kunaljoshi-new2002.k8s.local --zones eu-north-1a --master-count=1 --master-size t3.medium --node-count=2 --node-size t3.medium
 
 # Update the cluster
-kops update cluster --name kunaljoshi-new.k8s.local --yes --admin
+kops update cluster --name kunaljoshi-new2002.k8s.local --yes --admin
